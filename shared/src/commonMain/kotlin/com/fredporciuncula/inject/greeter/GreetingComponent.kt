@@ -2,6 +2,7 @@ package com.fredporciuncula.inject.greeter
 
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
+import kotlin.jvm.JvmInline
 
 @JvmInline value class SpecialGreeting1(val value: String)
 @JvmInline value class SpecialGreeting2(val value: String)
