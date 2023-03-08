@@ -3,8 +3,9 @@ agp = '7.4.2'
 androidx-activity = '1.6.1'
 compose-bom = '2023.01.00' # https://developer.android.com/jetpack/compose/bom/bom-mapping
 compose-compiler = '1.4.3'
-dagger = '2.45'
 kotlin = '1.8.10'
+kotlinInject = '0.6.1'
+ksp = '1.8.10-1.0.9'
 
 [libraries]
 androidx-activity-compose = { module = 'androidx.activity:activity-compose', version.ref = 'androidx-activity' }
@@ -16,13 +17,12 @@ compose-runtime = { module = 'androidx.compose.runtime:runtime' }
 compose-ui = { module = 'androidx.compose.ui:ui' }
 compose-ui-tooling = { module = 'androidx.compose.ui:ui-tooling' }
 compose-ui-toolingPreview = { module = 'androidx.compose.ui:ui-tooling-preview' }
-hilt = { module = 'com.google.dagger:hilt-android', version.ref = 'dagger' }
-hilt-compiler = { module = 'com.google.dagger:hilt-compiler', version.ref = 'dagger' }
+kotlinInject-compiler = { module = 'me.tatarka.inject:kotlin-inject-compiler-ksp', version.ref = 'kotlinInject' }
+kotlinInject-runtime = { module = 'me.tatarka.inject:kotlin-inject-runtime', version.ref = 'kotlinInject' }
 
 [plugins]
 android-application = { id = 'com.android.application', version.ref = 'agp' }
 android-library = { id = 'com.android.library', version.ref = 'agp' }
-hilt = { id = 'com.google.dagger.hilt.android', version.ref = 'dagger' }
-kapt = { id = 'org.jetbrains.kotlin.kapt', version.ref = 'kotlin' }
 kotlin-android = { id = 'org.jetbrains.kotlin.android', version.ref = 'kotlin' }
 kotlin-multiplatform = { id = 'org.jetbrains.kotlin.multiplatform', version.ref = 'kotlin' }
+ksp = { id = 'com.google.devtools.ksp', version.ref = 'ksp' }

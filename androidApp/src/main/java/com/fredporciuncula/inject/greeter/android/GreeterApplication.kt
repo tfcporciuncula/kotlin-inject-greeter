@@ -1,7 +1,9 @@
 package com.fredporciuncula.inject.greeter.android
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
 
-@HiltAndroidApp
-class GreeterApplication : Application()
+class GreeterApplication : Application(), ApplicationComponentProvider {
+  override val component by lazy(LazyThreadSafetyMode.NONE) {
+    ApplicationComponent::class.create(applicationContext)
+  }
+}
