@@ -1,13 +1,13 @@
 package com.fredporciuncula.inject.greeter
 
-import javax.inject.Inject
+import me.tatarka.inject.annotations.Inject
 
 interface GreetingConcatenator {
   fun concatenate(greetings: Set<String>): String
 }
 
-class GreetingConcatenatorImpl @Inject constructor(
-) : GreetingConcatenator {
+@Inject
+class GreetingConcatenatorImpl : GreetingConcatenator {
   override fun concatenate(greetings: Set<String>): String {
     return greetings.sorted().joinToString()
   }

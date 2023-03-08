@@ -1,24 +1,17 @@
 package com.fredporciuncula.inject.greeter
 
-import dagger.Binds
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import dagger.multibindings.IntoSet
-import javax.inject.Qualifier
+import me.tatarka.inject.annotations.IntoSet
+import me.tatarka.inject.annotations.Provides
 
-@Qualifier annotation class SpecialGreeting1
-@Qualifier annotation class SpecialGreeting2
+typealias SpecialGreeting1 = String
+typealias SpecialGreeting2 = String
 
-@Module
-@InstallIn(SingletonComponent::class)
-object GreetingModule {
-  @Provides @SpecialGreeting1
-  fun provideSpecialGreeting1(): String = "Heeeeey"
+interface GreetingModule {
+  @Provides
+  fun provideSpecialGreeting1(): SpecialGreeting1 = "Heeeeey"
 
-  @Provides @SpecialGreeting2
-  fun provideSpecialGreeting2(): String = "Oieeeee"
+  @Provides
+  fun provideSpecialGreeting2(): SpecialGreeting2 = "Oieeeee"
 
   @Provides @IntoSet
   fun provideEnglishGreeting(): String = "Hello"
@@ -29,9 +22,6 @@ object GreetingModule {
   @Provides @IntoSet
   fun providePortugueseGreeting(): String = "Olá"
 
-  @Module
-  @InstallIn(SingletonComponent::class)
-  interface Bindings {
-    @Binds fun bind(impl: GreetingConcatenatorImpl): GreetingConcatenator
-  }
+  @Provides
+  fun GreetingConcatenatorImpl.bind(): GreetingConcatenator = this
 }
