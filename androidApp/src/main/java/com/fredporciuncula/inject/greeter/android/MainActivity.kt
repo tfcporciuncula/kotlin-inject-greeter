@@ -12,11 +12,19 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.fredporciuncula.inject.greeter.GreetingHandler
+import me.tatarka.inject.annotations.Component
+
+@Component
+abstract class MainActivityComponent(@Component val parent: ApplicationComponent) {
+  abstract val greetingHandlerCreator: (String) -> GreetingHandler
+}
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    val greetingHandler = applicationComponent.greetingHandlerFactory.create(assistedArg = "this is an assisted arg")
+    val greetingHandler = MainActivityComponent::class.create(applicationComponent)
+      .greetingHandlerCreator("this is an assisted arg")
     setContent {
       Column(
         modifier = Modifier

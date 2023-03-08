@@ -1,22 +1,16 @@
 package com.fredporciuncula.inject.greeter.android
 
 import android.content.Context
-import com.fredporciuncula.inject.greeter.GreetingHandler
-import com.fredporciuncula.inject.greeter.GreetingModule
-import dagger.BindsInstance
-import dagger.Component
-import javax.inject.Singleton
+import com.fredporciuncula.inject.greeter.GreetingComponent
+import com.fredporciuncula.inject.greeter.PlatformComponent
+import com.fredporciuncula.inject.greeter.Singleton
+import me.tatarka.inject.annotations.Component
+import me.tatarka.inject.annotations.Provides
 
-@Singleton
-@Component(modules = [GreetingModule::class])
-interface ApplicationComponent {
-  @Component.Factory
-  interface Factory {
-    fun build(@BindsInstance context: Context): ApplicationComponent
-  }
-
-  val greetingHandlerFactory: GreetingHandler.Factory
-}
+@Component @Singleton
+abstract class ApplicationComponent(
+  @get:Provides val context: Context,
+) : GreetingComponent, PlatformComponent
 
 interface ApplicationComponentProvider {
   val component: ApplicationComponent
