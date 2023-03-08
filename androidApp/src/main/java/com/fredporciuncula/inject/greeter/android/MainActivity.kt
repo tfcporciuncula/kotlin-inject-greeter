@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    val greetingHandler = applicationComponent.greetingHandlerFactory.create(assistedArg = "this is an assisted arg")
+    val greetingHandler = applicationComponent.greetingHandlerCreator("this is an assisted arg")
     setContent {
       Column(
         modifier = Modifier

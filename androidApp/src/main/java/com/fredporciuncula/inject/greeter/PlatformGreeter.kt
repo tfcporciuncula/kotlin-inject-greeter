@@ -2,11 +2,10 @@ package com.fredporciuncula.inject.greeter
 
 import android.content.Context
 import android.widget.Toast
-import javax.inject.Inject
-import javax.inject.Singleton
+import me.tatarka.inject.annotations.Inject
 
-@Singleton
-class PlatformGreeter @Inject constructor(
+@Inject @Singleton
+class PlatformGreeter(
   private val context: Context
 ) {
   fun greet(finalGreeting: String) {
