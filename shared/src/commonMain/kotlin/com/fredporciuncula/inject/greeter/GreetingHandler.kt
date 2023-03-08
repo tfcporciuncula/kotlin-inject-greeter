@@ -1,6 +1,5 @@
 package com.fredporciuncula.inject.greeter
 
-import android.util.Log
 import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
 
@@ -16,16 +15,16 @@ class GreetingHandler(
   fun handleAllGreetings() {
     val concatenatedGreeting = greetingConcatenator.value.concatenate(greetings)
     platformGreeter().greet(finalGreeting = concatenatedGreeting)
-    Log.d("GreetingHandler", "assistedArg = $assistedArg")
+    println("assistedArg = $assistedArg")
   }
 
   fun handleSpecialGreeting1() {
     platformGreeter().greet(finalGreeting = specialGreeting1.value)
-    Log.d("GreetingHandler", "assistedArg = $assistedArg")
+    println("assistedArg = $assistedArg")
   }
 
   fun handleSpecialGreeting2() {
     platformGreeter().greet(finalGreeting = specialGreeting2.value)
-    Log.d("GreetingHandler", "assistedArg = $assistedArg")
+    println("assistedArg = $assistedArg")
   }
 }

@@ -5,10 +5,10 @@ import android.widget.Toast
 import me.tatarka.inject.annotations.Inject
 
 @Inject @Singleton
-class PlatformGreeter(
+class AndroidPlatformGreeter(
   private val context: Context
-) {
-  fun greet(finalGreeting: String) {
+) : PlatformGreeter {
+  override fun greet(finalGreeting: String) {
     Toast.makeText(context, finalGreeting, Toast.LENGTH_SHORT).show()
   }
 }
