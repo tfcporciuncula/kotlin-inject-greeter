@@ -20,12 +20,12 @@ class GreetingHandler(
   }
 
   fun handleSpecialGreeting1() {
-    platformGreeter().greet(finalGreeting = specialGreeting1)
+    platformGreeter().greet(finalGreeting = specialGreeting1.value)
     Log.d("GreetingHandler", "assistedArg = $assistedArg")
   }
 
   fun handleSpecialGreeting2() {
-    platformGreeter().greet(finalGreeting = specialGreeting2)
+    platformGreeter().greet(finalGreeting = specialGreeting2.value)
     Log.d("GreetingHandler", "assistedArg = $assistedArg")
   }
 }

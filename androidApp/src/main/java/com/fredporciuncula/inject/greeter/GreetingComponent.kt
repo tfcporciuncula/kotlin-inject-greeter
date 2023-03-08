@@ -3,15 +3,15 @@ package com.fredporciuncula.inject.greeter
 import me.tatarka.inject.annotations.IntoSet
 import me.tatarka.inject.annotations.Provides
 
-typealias SpecialGreeting1 = String
-typealias SpecialGreeting2 = String
+@JvmInline value class SpecialGreeting1(val value: String)
+@JvmInline value class SpecialGreeting2(val value: String)
 
 interface GreetingComponent {
   @Provides
-  fun provideSpecialGreeting1(): SpecialGreeting1 = "Heeeeey"
+  fun provideSpecialGreeting1(): SpecialGreeting1 = SpecialGreeting1("Heeeeey")
 
   @Provides
-  fun provideSpecialGreeting2(): SpecialGreeting2 = "Oieeeee"
+  fun provideSpecialGreeting2(): SpecialGreeting2 = SpecialGreeting2("Oieeeee")
 
   @Provides @IntoSet
   fun provideEnglishGreeting(): String = "Hello"
