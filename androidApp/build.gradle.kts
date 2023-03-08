@@ -1,8 +1,7 @@
 plugins {
   alias(libs.plugins.kotlin.android)
   alias(libs.plugins.android.application)
-  alias(libs.plugins.kapt)
-  alias(libs.plugins.hilt)
+  alias(libs.plugins.ksp)
 }
 
 android {
@@ -32,10 +31,6 @@ android {
   }
 }
 
-kapt {
-  correctErrorTypes = true
-}
-
 dependencies {
   implementation(project(":shared"))
   implementation(libs.androidx.activity.compose)
@@ -47,6 +42,6 @@ dependencies {
   implementation(libs.compose.ui.toolingPreview)
   debugRuntimeOnly(libs.compose.ui.tooling)
 
-  implementation(libs.hilt)
-  kapt(libs.hilt.compiler)
+  implementation(libs.kotlinInject.runtime)
+  ksp(libs.kotlinInject.compiler)
 }
