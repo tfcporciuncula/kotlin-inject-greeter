@@ -6,7 +6,7 @@ import me.tatarka.inject.annotations.Provides
 typealias SpecialGreeting1 = String
 typealias SpecialGreeting2 = String
 
-interface GreetingModule {
+interface GreetingComponent {
   @Provides
   fun provideSpecialGreeting1(): SpecialGreeting1 = "Heeeeey"
 
