@@ -10,9 +10,7 @@ import me.tatarka.inject.annotations.Provides
 @Component @Singleton
 abstract class ApplicationComponent(
   @get:Provides val context: Context,
-) : GreetingComponent {
-  abstract val greetingHandlerCreator: (String) -> GreetingHandler
-}
+) : GreetingComponent
 
 interface ApplicationComponentProvider {
   val component: ApplicationComponent
