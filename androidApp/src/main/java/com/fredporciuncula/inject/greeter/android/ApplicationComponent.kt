@@ -1,6 +1,7 @@
 package com.fredporciuncula.inject.greeter.android
 
 import android.content.Context
+import com.fredporciuncula.inject.greeter.GreetingHandler
 import com.fredporciuncula.inject.greeter.GreetingModule
 import dagger.BindsInstance
 import dagger.Component
@@ -14,7 +15,7 @@ interface ApplicationComponent {
     fun build(@BindsInstance context: Context): ApplicationComponent
   }
 
-  fun inject(mainActivity: MainActivity)
+  val greetingHandlerFactory: GreetingHandler.Factory
 }
 
 interface ApplicationComponentProvider {
